@@ -19,7 +19,7 @@ export const WebSocketProvider = ({ children, isConnected }: WebSocketProviderPr
 
   useEffect(() => {
     if (isConnected && !socket) {
-      const wsUrl = 'ws://insydnotificationsystem-backend-production-6025.up.railway.app:3000';
+      const wsUrl = 'wss://insydnotificationsystem-backend-production-6025.up.railway.app:3000';
       const newSocket = new WebSocket(wsUrl);
       
       newSocket.onopen = () => {

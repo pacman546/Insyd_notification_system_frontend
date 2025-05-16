@@ -14,7 +14,7 @@ const PostItem = ({ post }: PostItemProps) => {
   const [isLiked, setIsLiked] = useState(false);
   const [likeFeedback, setLikeFeedback] = useState(false);
 
-  const author = users.find(user => user.id === post.createdBy) || { name: 'Unknown User' };
+  const author = users.find(user => user.id === post.author._id) || { name: 'Unknown User' };
   
   const handleLike = async () => {
     try {

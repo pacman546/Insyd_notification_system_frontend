@@ -19,7 +19,8 @@ const PostItem = ({ post }: PostItemProps) => {
   '6826afb70532ad567ffdcf2c': 'Jiri',
 };
 
-const authorName = authorMap[post.author._id] || 'Unknown User';
+const authorId = post.author?._id;
+const authorName = authorMap[authorId] || 'Unknown User';
   
   const handleLike = async () => {
     try {

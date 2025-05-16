@@ -15,8 +15,8 @@ const PostItem = ({ post }: PostItemProps) => {
   const [likeFeedback, setLikeFeedback] = useState(false);
 
   const authorMap: Record<string, string> = {
-  '6826afb70532ad567ffdcf2b': 'Alex',
-  '6826afb70532ad567ffdcf2c': 'Jiri',
+  '68275e2c9ec55e236d6151a6': 'Alex',
+  '68275e2c9ec55e236d6151a7': 'Jiri',
 };
 
 const authorId = post.author?._id;

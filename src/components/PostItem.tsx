@@ -22,32 +22,37 @@ const PostItem = ({ post }: PostItemProps) => {
 const authorId = post.author?._id;
 const authorName = authorMap[authorId] || 'Unknown User';
   
-  const handleLike = async () => {
-    try {
-      setIsLiking(true);
-      console.log('Payload for likePost:', {
-        actorId: currentUser.id,
-        targetId: post.author._id,
-        postId: post._id,
-        type: 'LIKE',
-      });
-      await likePost({
-        actorId: currentUser.id,
-        targetId: post.author._id,
-        postId: post._id,
-        type: 'LIKE'
-      });
-      setIsLiked(true);
-      
-      // Show feedback that like was successful
-      setLikeFeedback(true);
-      setTimeout(() => setLikeFeedback(false), 2000);
-    } catch (err) {
-      console.error('Failed to like post:', err);
-    } finally {
-      setIsLiking(false);
-    }
-  };
+ const handleLike = async () => {
+  if (!post?.author?._id) {
+    console.error('Post author is missing, cannot like');
+    return;
+  }
+
+  try {
+    setIsLiking(true);
+    console.log('Payload for likePost:', {
+      actorId: currentUser.id,
+      targetId: post.author._id,
+      postId: post._id,
+      type: 'LIKE',
+    });
+    await likePost({
+      actorId: currentUser.id,
+      targetId: post.author._id,
+      postId: post._id,
+      type: 'LIKE',
+    });
+    setIsLiked(true);
+
+    // Show feedback that like was successful
+    setLikeFeedback(true);
+    setTimeout(() => setLikeFeedback(false), 2000);
+  } catch (err) {
+    console.error('Failed to like post:', err);
+  } finally {
+    setIsLiking(false);
+  }
+};
 
   return (
     <div className="bg-white rounded-lg shadow p-6">

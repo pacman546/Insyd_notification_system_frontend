@@ -116,6 +116,26 @@ The application is configured for deployment with the following commands:
 - Output Directory: `dist`
 - Install Dependencies: `npm install`
 
+## How to Use the App 
+
+You can test the real-time notification system using two sample users: **Alex** and **Jiri**. Follow these steps:
+
+1. **Go online as Alex**  
+   Open the app and select "Alex" from the user list to connect via WebSocket.
+
+2. **Like a post by Jiri**  
+   Perform an action such as liking a post authored by Jiri.
+
+3. **Go offline as Alex, then go online as Jiri**  
+   Disconnect Alex and switch to Jiri as the active user.
+
+4. **View the notification**  
+   Jiri will receive a notification. You can **acknowledge** it by clicking on it, or leave it unacknowledged.
+
+> You can reverse the flow to send a notification from Jiri to Alex as well.
+
+This flow demonstrates the async queuing, Redis buffering, and real-time delivery powered by WebSockets.
+
 ## Environment Variables
 
 No environment variables are required as the WebSocket URL is hardcoded for the production environment

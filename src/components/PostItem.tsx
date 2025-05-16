@@ -14,7 +14,12 @@ const PostItem = ({ post }: PostItemProps) => {
   const [isLiked, setIsLiked] = useState(false);
   const [likeFeedback, setLikeFeedback] = useState(false);
 
-  const author = users.find(user => user.id === post.author._id) || { name: 'Unknown User' };
+  const authorMap: Record<string, string> = {
+  '6826afb70532ad567ffdcf2b': 'Alex',
+  '6826afb70532ad567ffdcf2c': 'Jiri',
+};
+
+const authorName = authorMap[post.author._id] || 'Unknown User';
   
   const handleLike = async () => {
     try {
@@ -49,7 +54,7 @@ const PostItem = ({ post }: PostItemProps) => {
       <p className="text-slate-600 mb-4">{post.content}</p>
       <div className="flex justify-between items-center">
         <div className="text-sm text-slate-500">
-          Posted by <span className="font-medium">{author.name}</span>
+          Posted by <span className="font-medium">{authorName}</span>
         </div>
         <button
           onClick={handleLike}

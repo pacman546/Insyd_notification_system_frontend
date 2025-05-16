@@ -8,8 +8,8 @@ interface UserContextType {
 }
 
 const defaultUsers: User[] = [
-  { id: '6826afb70532ad567ffdcf2b', name: 'Alex' },
-  { id: '6826afb70532ad567ffdcf2c', name: 'Jiri' },
+  { id: '68275e2c9ec55e236d6151a6', name: 'Alex' },
+  { id: '68275e2c9ec55e236d6151a7', name: 'Jiri' },
 ];
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
